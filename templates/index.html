@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Переводчик текста с помощью ИИ</title>
+    <script src="{{ url_for('static', path='/index.js') }}"></script>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1>Переводчик текста с помощью ИИ</h1>
+    <p>Этот проект использует модель Helsinki-NLP/opus-mt-tc-bible-big-mul-mul для перевода текстов.</p>
+    <p>Модель Helsinki-NLP/opus-mt-tc-bible-big-mul-mul - это большая модель машинного обучения, предназначенная для перевода текстов на множество языков. Она обучена на большом объеме данных и может справиться с переводом сложных текстов.</p>
+    <p>Чтобы начать перевод, воспользуйтесь формой ниже:</p>
+    <form action="/translate" method="post">
+        <textarea rows="5" name="text" id="text" style="width: 100%" placeholder="Введите текст для перевода"></textarea>
+        <select name="lang" id="lang">
+        {% for lang in LANGS %}
+            <option value="{{ lang }}">{{ lang }}</option>
+        {% endfor %}
+        </select>
+    </form>
+<button type="submit" id="sendTranlsation">Перевести</button>
+
+<div class="response-result" id="responseDiv">
+ здесь будет результат перевода
+</div>
+<p>Документация по проекту:</p>
+    <a href="/docs" style="text-decoration: none; color: blue;">
+        <button class="btn btn-primary">
+            Перейти к документации
+        </button>
+    </a>
+
+<p>Доп информация по модели:</p>
+    <a href="/about" style="text-decoration: none; color: blue;">
+        <button class="btn btn-primary">
+            Перейти к описанию модели
+        </button>
+    </a>
+</body>
+</html>
