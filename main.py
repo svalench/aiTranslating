@@ -15,9 +15,7 @@ TOKENIZER = MarianTokenizer.from_pretrained(model_name)
 MODEL = MarianMTModel.from_pretrained(model_name)
 
 LANGS = ['eng', 'rus', 'ukr', 'fra', "kaz", "bel", "deu"]
-template = """
 
-"""
 
 class Translate(BaseModel):
     text: str
